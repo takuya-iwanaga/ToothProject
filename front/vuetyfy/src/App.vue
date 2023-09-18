@@ -1,10 +1,18 @@
 <template>
-  <router-view />
-  <Toothmain/>
+  <v-app>
+    
+    <Sample/>
+    
+    <v-main>
+    <router-view/> 
+    </v-main>
+  </v-app>
+  
 </template>
 
 <script setup>
-import Toothmain from './components/toothmain.vue';
+import Sample from './components/sample.vue';
+
 
   
 </script>
