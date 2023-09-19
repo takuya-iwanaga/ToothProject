@@ -1,12 +1,9 @@
 <template>
-  
-    
-    <v-app-bar flat>
-      
-        <svg-icon type="mdi" :path="mdiMenu"></svg-icon>
-        <v-toolbar-title class="text-center">{{message}}</v-toolbar-title>
-      
-    </v-app-bar>
+  <v-app-bar flat>
+    <svg-icon type="mdi" :path="mdiMenu" width="40" height="40"></svg-icon>
+    <v-toolbar-title class="text-center ml-n7">{{message}}</v-toolbar-title>
+  </v-app-bar>
+
     
     
   </template>
