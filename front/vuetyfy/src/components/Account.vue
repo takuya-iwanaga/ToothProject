@@ -1,5 +1,7 @@
 
 <template>
+
+<!--アカウントの写真と名前、診察券番号の表示-->
 <v-row> 
     <v-col cols="2">  
     <v-avatar color="indigo" size="48" class="ml-2">
@@ -19,6 +21,7 @@
     </v-col>
 </v-row> 
 
+<!--予約の日付と時間の表示-->
 <div class="ml-2"><font size="-1">次回の予約</font></div>
 <div class="ml-2">{{ data }}</div>
 </template>
