@@ -6,6 +6,7 @@
       absolute
       bottom
       temporary
+      :width="300"
     >
       <v-list
         nav
@@ -15,28 +16,31 @@
           v-model="group"
           active-class=""
         >
-        <img src='@/assets/suyamasika.jpg'
-        >
+        <img src='@/assets/suyamasika.jpg'>
 
-        <div>
-        <svg-icon type="mdi" :path="mdiInformation"></svg-icon>
-        医院情報
-        </div>
-        <div>
-        <svg-icon type="mdi" :path="mdiPhone"></svg-icon>
-        電話をかける
-        </div>
-        <div>
-        <svg-icon type="mdi" :path="mdiFileDocumentOutline"></svg-icon>
-        利用規約
-        </div>
-        <div>
-        <svg-icon type="mdi" :path="mdiShield"></svg-icon>
-        プライバシーポリシー
-        </div>
+        <div class="text-center font-weight-bold text-caption" >{{ message }}</div>
+        <v-list>
+          <v-list-item prepend-icon="mdi-information" title="医療情報" value="home"></v-list-item>
+          <v-list-item prepend-icon="mdi-phone" title="電話をかける" value="home"></v-list-item>
+        </v-list>
+       
+          <v-divider></v-divider>
+        
+        <v-list>
+          <v-list-item prepend-icon="mdi-file-document-outline" title="利用規約" value="home"></v-list-item>
+          <v-list-item prepend-icon="mdi-shield" title="プライバシーポリシー" value="home"></v-list-item>
+        
+       </v-list>
+
 
         </v-list-item-group>
       </v-list>
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-divider></v-divider>
+          <div class="text-center">{{ version }}</div>
+          </div>
+      </template>
     </v-navigation-drawer>
 
     <v-app-bar flat>
@@ -51,15 +55,11 @@
   
   <script setup>
   //アイコンの使用
-    import SvgIcon from '@jamescoyle/vue-icon';
-    import { mdiInformation } from '@mdi/js';
-    import { mdiPhone } from '@mdi/js';
-    import { mdiFileDocumentOutline } from '@mdi/js';
-    import { mdiShield } from '@mdi/js';
 
     import { ref, watch } from 'vue'
 
     const message = 'すやま歯科医院'
+    const version='Version 1.11.2'
 
     const drawer = ref(false)
   const group = ref(null)

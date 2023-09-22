@@ -35,7 +35,8 @@
       </v-row>
       <!-- カメラとMedical Boxのボタンの配置-->
       <v-row justify="center">
-        <v-btn style="border: solid 3px gray" height="118" width="156" class="ma-1 text-capitalize text-grey" >
+        <v-btn style="border: solid 3px gray" height="118" width="156" class="ma-1 text-capitalize text-grey" 
+        @click="aaa()">
             <v-col>
             <svg-icon color="grey" height="60" width="60" type="mdi" :path=mdiCamera></svg-icon>
             <div>カメラ</div>
@@ -50,6 +51,24 @@
         </v-btn>
       </v-row>
       </v-container>
+
+    <div v-show="modal">
+      <div>
+        kkkkk
+      </div>
+      <div>
+        kkkkk
+      </div>
+      <div>
+        kkkkk
+      </div>
+      <div>
+        kkkkk
+      </div>
+      <v-btn @click="modal=!modal">
+        ffff
+      </v-btn>
+    </div>
     
 </template>    
   
@@ -61,5 +80,15 @@
     import { mdiBell } from '@mdi/js';
     import { mdiCamera } from '@mdi/js';
     import { mdiImageMultiple } from '@mdi/js';
+    import {ref,watch} from 'vue'
+
+    const modal=ref(false);
+
+    function aaa(){
+      this.modal=true;
+    };
+
+
+    
 
 </script>
