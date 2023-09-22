@@ -35,6 +35,9 @@
       </v-row>
       <!-- カメラとMedical Boxのボタンの配置-->
       <v-row justify="center">
+
+      <!-- カメラボタンの配置-->
+        <div>
         <v-btn style="border: solid 3px gray" height="118" width="156" class="ma-1 text-capitalize text-grey" 
         @click="aaa()">
             <v-col>
@@ -43,6 +46,24 @@
             </v-col>
         </v-btn>
 
+        <v-dialog
+        v-model="modal"
+        width="auto"
+      >
+        <v-card>
+          <v-card-text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </v-card-text>
+          <v-card-actions>
+            <v-btn color="primary" block @click="modal = false">Close Dialog</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+      </div>
+
+
+
+      <!--Medical Boxボタンの配置-->
         <v-btn style="border: solid 3px lightblue" height="118" width="156" class="ma-1 text-capitalize text-blue-lighten-3">
             <v-col>
             <svg-icon color="lightblue" height="60" width="60" type="mdi" :path=mdiImageMultiple></svg-icon>
@@ -51,25 +72,8 @@
         </v-btn>
       </v-row>
       </v-container>
-
-    <div v-show="modal">
-      <div>
-        kkkkk
-      </div>
-      <div>
-        kkkkk
-      </div>
-      <div>
-        kkkkk
-      </div>
-      <div>
-        kkkkk
-      </div>
-      <v-btn @click="modal=!modal">
-        ffff
-      </v-btn>
-    </div>
     
+
 </template>    
   
 <script setup>
