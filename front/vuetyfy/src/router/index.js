@@ -3,17 +3,19 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '',
+    path: '/',
     component: () => import('@/views/Home.vue'),
 
+  
     children: [
-      {
-        path: '/Sample',
-        name:'Sample',
-        component: () => import('@/components/samp.vue'),
-      },
+      
     ],
   },
+  {
+    path: '/Medical',
+    name:'Medical',
+    component: () => import('@/components/bottompushview/MedicalBox.vue')
+  }
 ]
 
 const router = createRouter({
