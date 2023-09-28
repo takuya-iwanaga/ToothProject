@@ -3,35 +3,44 @@
     <v-container>
   <!-- QRコードとご予約のボタンの配置-->
   <v-row justify="center">
+    <router-link to="Qrcode">
     <v-btn style="border: solid 3px red" height="118" width="156" class="ma-1 text-capitalize text-red" >
         <v-col>
         <svg-icon color="red" height="60" width="60" type="mdi" :path=mdiQrcode></svg-icon>
         <div>QRコード</div>
         </v-col>
     </v-btn>
+    </router-link>
 
+    <router-link to="Reserve">
     <v-btn style="border: solid 3px blue" height="118" width="156" class="ma-1 text-capitalize text-blue">
         <v-col>
         <svg-icon color="blue" height="60" width="60" type="mdi" :path=mdiCalendarToday></svg-icon>
         <div>ご予約</div>
         </v-col>
     </v-btn>
+    </router-link> 
   </v-row>
   <!-- マイページとお知らせのボタンの配置-->
   <v-row justify="center">
+    <router-link :to="{name:'Mypage', params:{name:Myname.name}}">
     <v-btn style="border: solid 3px green" height="118" width="156" class="ma-1 text-capitalize text-green" >
         <v-col>
         <svg-icon color="green" height="60" width="60" type="mdi" :path=mdiAccountMultiple></svg-icon>
         <div>マイページ</div>
         </v-col>
     </v-btn>
+    </router-link>
 
+    <router-link to="/Information">
     <v-btn style="border: solid 3px yellow" height="118" width="156" class="ma-1 text-capitalize text-yellow">
         <v-col>
         <svg-icon color="yellow" height="60" width="60" type="mdi" :path=mdiBell></svg-icon>
         <div>お知らせ</div>
         </v-col>
     </v-btn>
+    </router-link>
+
   </v-row>
   <!-- カメラとMedical Boxのボタンの配置-->
   <v-row justify="center">
@@ -97,6 +106,7 @@ function aaa(){
   this.modal=true;
 };
 
+const Myname=defineProps(["name"]);
 
 
 
