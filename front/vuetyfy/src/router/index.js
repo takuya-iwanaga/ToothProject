@@ -12,7 +12,7 @@ const routes = [
     ],
   },
   {
-    path: '/Medical',
+    path: '/Medical/:name',
     name:'Medical',
     component: () => import('@/components/bottompushview/MedicalBox.vue')
   },

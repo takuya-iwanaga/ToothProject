@@ -73,7 +73,7 @@
 
 
   <!--Medical Boxボタンの配置-->
-  <router-link to="/Medical">
+  <router-link :to="{name:'Medical', params:{name:Myname.name}}">
     <v-btn style="border: solid 3px lightblue" height="118" width="156" class="ma-1 text-capitalize text-blue-lighten-3"
     >
         <v-col>
