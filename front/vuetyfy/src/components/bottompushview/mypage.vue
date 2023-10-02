@@ -1,6 +1,6 @@
 <template>
     <Header title="マイページ"/>
-    <div>{{ $route.params.name }}様のマイページ</div>
+    <div><font size="+2">{{ $route.params.name }}</font>様のマイページ</div>
     <v-container>
     <v-row >
         <v-btn style="border: solid 3px green" class="ma-1 text-capitalize " height="80" width="280">

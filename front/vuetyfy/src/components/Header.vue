@@ -2,11 +2,11 @@
 
     <!--ヘッダーの表示の表示-->
     <v-row> 
-        <v-col>
+        <v-col cols="1">
             <router-link to="/">
                 <svg-icon size="40" type="mdi" :path=mdiChevronLeft></svg-icon>
             </router-link>
-        </v-col>
+        </v-col >
         <v-col >
             <h3>{{ title }}</h3>
         </v-col>

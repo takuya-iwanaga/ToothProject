@@ -48,7 +48,7 @@
   <!-- カメラボタンの配置-->
     <div>
     <v-btn style="border: solid 3px gray" height="118" width="156" class="ma-1 text-capitalize text-grey" 
-    @click="aaa()">
+    @click="subview()">
         <v-col>
         <svg-icon color="grey" height="60" width="60" type="mdi" :path=mdiCamera></svg-icon>
         <div>カメラ</div>
@@ -85,7 +85,7 @@
   </v-row>
   </v-container>
 
-
+<div>{{ info }}</div>
 </template>    
 
 <script setup>
@@ -96,17 +96,29 @@ import { mdiAccountMultiple } from '@mdi/js';
 import { mdiBell } from '@mdi/js';
 import { mdiCamera } from '@mdi/js';
 import { mdiImageMultiple } from '@mdi/js';
-import {ref } from 'vue';
+import{onMounted,ref} from 'vue'
+import axios from 'axios'
 
 
 const modal=ref(false);
 
 
-function aaa(){
+function subview(){
   this.modal=true;
 };
 
 const Myname=defineProps(["name"]);
+
+//ユーザー情報の読み込み
+let info=ref([]);
+
+onMounted(() => {
+      axios
+        .get('http://127.0.0.1:4050/user/user_data')
+        .then((response) => info.value=[response.data])
+        .catch((error) => console.log(error));
+    });
+    console.log(info)
 
 
 

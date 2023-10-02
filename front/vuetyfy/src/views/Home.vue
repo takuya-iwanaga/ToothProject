@@ -11,7 +11,7 @@
 </template>    
   
 <script setup>
-import Sample from "@/components/sample.vue";
+import Sample from "@/components/Sample.vue";
 import Account from "@/components/Account.vue";
 import Bottomselect from "./Bottomselect.vue";
 

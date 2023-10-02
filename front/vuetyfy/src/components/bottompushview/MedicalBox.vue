@@ -1,6 +1,6 @@
 <template>
     <Header title="Medical Box"/>
-<div> {{  $route.params.name }}様のMedical Box</div>
+<div> <font size="+2">{{  $route.params.name }}</font>様のMedical Box</div>
 
 <div>医院からのメッセージはありません</div>
 </template>
