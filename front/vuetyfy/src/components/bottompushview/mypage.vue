@@ -1,6 +1,6 @@
 <template>
     <Header title="マイページ"/>
-    <div><font size="+2">fff</font>様のマイページ</div>
+    <div><font size="+2">{{ $store.state.userinfo.user_name }}</font>様のマイページ</div>
     <v-container>
     <v-row >
         <v-btn style="border: solid 3px green" class="ma-1 text-capitalize " height="80" width="280">

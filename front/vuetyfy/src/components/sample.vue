@@ -18,7 +18,7 @@
         >
         <img src='@/assets/suyamasika.jpg'>
 
-        <div class="text-center font-weight-bold text-caption" >{{ message }}</div>
+        <div class="text-center font-weight-bold text-caption" >{{ $store.state.userinfo.hospital_name}}</div>
         <v-list>
           <v-list-item prepend-icon="mdi-information" title="医療情報" value="home"></v-list-item>
           <v-list-item prepend-icon="mdi-phone" title="電話をかける" value="home"></v-list-item>
@@ -46,7 +46,7 @@
     <v-app-bar flat>
     <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-    <v-toolbar-title class="text-center ml-n7">{{message}}</v-toolbar-title>
+    <v-toolbar-title class="text-center ml-n7">{{$store.state.userinfo.hospital_name}}</v-toolbar-title>
 
   </v-app-bar>
 
@@ -58,7 +58,6 @@
 
     import { ref, watch } from 'vue'
 
-    const message = 'すやま歯科医院'
     const version='Version 1.11.2'
 
     const drawer = ref(false)

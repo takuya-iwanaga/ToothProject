@@ -7,7 +7,6 @@
       <Account/>
     <Bottomselect/>
     </v-main>
-    <div>{{ store.state.username}}</div>
     
   </v-app>
 </template>    
@@ -29,8 +28,9 @@ let user_name="岩永"
 const url='http://127.0.0.1:4050/user/user_data'
 
 
-  function fastapi_connect(url){
 
+//apiの通信の処理
+  function fastapi_connect(url){
     
     onMounted(()=>{
       axios
@@ -46,7 +46,5 @@ const url='http://127.0.0.1:4050/user/user_data'
 
   const info=fastapi_connect(url);
 
-
-     console.log(store.state.username)
 
 </script>

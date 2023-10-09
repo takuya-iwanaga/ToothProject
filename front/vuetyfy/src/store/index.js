@@ -2,11 +2,11 @@ import { createStore } from 'vuex'
 
 export const store = createStore({
   state:{
-      username: "ddddd"
+      userinfo: ""
   },
   mutations:{
     changeNumber(state,payload)
-    { state.username =  payload;}
+    { state.userinfo =  payload;}
     
   },
   actions:{
