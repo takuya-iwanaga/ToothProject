@@ -12,7 +12,7 @@ const routes = [
     ],
   },
   {
-    path: '/Medical/:name',
+    path: '/Medical',
     name:'Medical',
     component: () => import('@/components/bottompushview/MedicalBox.vue')
   },
@@ -22,7 +22,7 @@ const routes = [
     component: () => import('@/components/bottompushview/Information.vue')
   },
   {
-    path: '/Mypage/:name',
+    path: '/Mypage',
     name:'Mypage',
     component: () => import('@/components/bottompushview/Mypage.vue'),
   },

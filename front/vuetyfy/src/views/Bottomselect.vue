@@ -23,7 +23,7 @@
   </v-row>
   <!-- マイページとお知らせのボタンの配置-->
   <v-row justify="center">
-    <router-link :to="{name:'Mypage', params:{name:Myname.name}}">
+    <router-link to="Mypage">
     <v-btn style="border: solid 3px green" height="118" width="156" class="ma-1 text-capitalize text-green" >
         <v-col>
         <svg-icon color="green" height="60" width="60" type="mdi" :path=mdiAccountMultiple></svg-icon>
@@ -73,7 +73,7 @@
 
 
   <!--Medical Boxボタンの配置-->
-  <router-link :to="{name:'Medical', params:{name:Myname.name}}">
+  <router-link to="Medical">
     <v-btn style="border: solid 3px lightblue" height="118" width="156" class="ma-1 text-capitalize text-blue-lighten-3"
     >
         <v-col>
@@ -85,7 +85,7 @@
   </v-row>
   </v-container>
 
-<div>{{ info }}</div>
+
 </template>    
 
 <script setup>
@@ -96,8 +96,8 @@ import { mdiAccountMultiple } from '@mdi/js';
 import { mdiBell } from '@mdi/js';
 import { mdiCamera } from '@mdi/js';
 import { mdiImageMultiple } from '@mdi/js';
-import{onMounted,ref} from 'vue'
-import axios from 'axios'
+import{ref} from 'vue'
+
 
 
 const modal=ref(false);
@@ -107,18 +107,9 @@ function subview(){
   this.modal=true;
 };
 
-const Myname=defineProps(["name"]);
 
-//ユーザー情報の読み込み
-let info=ref([]);
 
-onMounted(() => {
-      axios
-        .get('http://127.0.0.1:4050/user/user_data')
-        .then((response) => info.value=[response.data])
-        .catch((error) => console.log(error));
-    });
-    console.log(info)
+
 
 
 
