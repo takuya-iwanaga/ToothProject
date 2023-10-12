@@ -1,5 +1,11 @@
+#fastapiのモジュール
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
+
+from pydantic import BaseModel
+from typing import List
+
+#postgreの接続のモジュール
 
 app = FastAPI()
 
@@ -11,6 +17,13 @@ app.add_middleware(
     allow_headers=["*"]       # 追記により追加
 )
 
+class User(BaseModel):
+    user_name:str
+    reserved_number:int
+    reserved_data:str
+    hospital_name:str
+
+
 user_data={"user_name":"岩永　拓也",
 "reserved_number":"4444",
 "reserved_data":"２０２３/０９/２６（火） １３：３０〜",
@@ -20,6 +33,13 @@ user_data={"user_name":"岩永　拓也",
 @app.get("/user/user_data")
 def read_root():
     return user_data
+
+
+@app.post("/reserved_data_receive")
+def reserved_data_receive(user:User):
+
+    return{"res":"受付が完了しました！"}
+
 
 
 @app.get("/items/{item_id}")
