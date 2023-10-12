@@ -5,7 +5,7 @@ export const store = createStore({
       userinfo: ""
   },
   mutations:{
-    changeNumber(state,payload)
+    change_userinfo(state,payload)
     { state.userinfo =  payload;}
     
   },

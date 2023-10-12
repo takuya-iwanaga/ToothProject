@@ -36,7 +36,7 @@ const url='http://127.0.0.1:4050/user/user_data'
       axios
         .get(url)
 
-        .then((response) => {store.commit('changeNumber',response.data)})
+        .then((response) => {store.commit('change_userinfo',response.data)})
 
         .catch((error) => console.log(error))
         
