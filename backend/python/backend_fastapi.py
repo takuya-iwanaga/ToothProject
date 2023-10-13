@@ -17,6 +17,7 @@ app.add_middleware(
     allow_headers=["*"]       # 追記により追加
 )
 
+
 class User(BaseModel):
     user_name:str
     reserved_number:int
