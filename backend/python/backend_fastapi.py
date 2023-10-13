@@ -17,7 +17,10 @@ app.add_middleware(
     allow_headers=["*"]       # 追記により追加
 )
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 12d683373c0a30c6606c8602aae055cfb450b20a
 class User(BaseModel):
     user_name:str
     reserved_number:int
