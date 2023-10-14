@@ -23,7 +23,6 @@ class User(BaseModel):
     reserved_data:str
     hospital_name:str
 
-
 user_data={"user_name":"岩永　拓也",
 "reserved_number":"4444",
 "reserved_data":"２０２３/０９/２６（火） １３：３０〜",
