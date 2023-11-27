@@ -19,6 +19,8 @@ import QrReader from 'vue3-qr-reader';
 
 
 
+
+
 const app = createApp(App)
 
 registerPlugins(app)
@@ -26,5 +28,6 @@ registerPlugins(app)
 app.use(store)
 
 app.use(QrReader);
+
 
 app.mount('#app')

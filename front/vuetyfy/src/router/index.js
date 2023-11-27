@@ -34,8 +34,36 @@ const routes = [
   {
     path: '/Reserve',
     name:'Reserve',
-    component: () => import('@/components/bottompushview/Reserve.vue')
+    component: () => import('@/components/bottompushview/Reserve.vue'),
+    children: [
+      {
+      path: '',
+      name:'Reserve_list',
+      component: () => import('@/components/bottompushview/Reserve_list.vue')
+      },
+      {
+        path: '/Add', 
+        name:'Add',
+        component: () => import('@/components/bottompushview/Reserve_add_parents.vue'),
+        children:[
+          {
+            path: '', 
+            name:'Adding',
+            component: () => import('@/components/bottompushview/Reserved_adding.vue'),
+
+          },
+          {
+            path: '/Checking', 
+            name:'Checking',
+            component: () => import('@/components/bottompushview/Reserve_checking.vue')
+          }
+        ]
+      },
+        
+    ]
+
   },
+  
 ]
 
 const router = createRouter({

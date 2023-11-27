@@ -12,7 +12,7 @@
     </v-btn>
     </router-link>
 
-    <router-link to="Reserve">
+    <router-link to='Reserve'>
     <v-btn style="border: solid 3px blue" height="118" width="156" class="ma-1 text-capitalize text-blue">
         <v-col>
         <svg-icon color="blue" height="60" width="60" type="mdi" :path=mdiCalendarToday></svg-icon>
@@ -97,7 +97,6 @@ import { mdiBell } from '@mdi/js';
 import { mdiCamera } from '@mdi/js';
 import { mdiImageMultiple } from '@mdi/js';
 import{ref} from 'vue'
-
 
 
 const modal=ref(false);
