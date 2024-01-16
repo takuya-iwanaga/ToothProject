@@ -1,0 +1,80 @@
+create table registrants_info (user_id int,hospital_list_id int,user_name varchar(10),birthday date,sex varchar(1),user_address varchar(50),user_img bytea);
+
+create table hospital_reserved_info (ticket_id int,user_id int,hospital_id int,reserved_date date,reserved_time time,reserved_check boolean not null);
+
+create table hospital_info (hospital_id int,hospital_name varchar(20),hospital_address varchar(70),hospital_phone_number varchar(15),hospital_img bytea,hospital_url text,close_day_info varchar(30),reserved_time_interval interval) ;
+
+create table hospital_running_time_info (hospital_id int not null,open_time time,close_time time,running_day int not null);
+
+create table visiting_hospital_info (hospital_list_id int not null,hospital_id int not null,visiting_check boolean not null);
+
+
+
+ALTER TABLE registrants_info ADD CONSTRAINT test_pkey PRIMARY KEY(user_id,hospital_list_id);
+
+ALTER TABLE hospital_reserved_info ADD CONSTRAINT test_pkey_hr PRIMARY KEY(ticket_id);
+
+ALTER TABLE hospital_info ADD CONSTRAINT test_pkey_h PRIMARY KEY(hospital_id);
+
+
+
+プライマリーキーの削除
+ALTER TABLE registrants_info DROP CONSTRAINT test_pkey;
+
+
+
+テストデータ
+
+INSERT INTO hospital_running_time_info VALUES (101,'9:00','12:00',0);
+
+INSERT INTO hospital_running_time_info VALUES (101,'13:30','18:00',0);
+
+INSERT INTO hospital_running_time_info VALUES (101,'9:00','12:00',1);
+
+INSERT INTO hospital_running_time_info VALUES (101,'13:30','18:00',1);
+
+INSERT INTO hospital_running_time_info VALUES (101,'9:00','12:00',2);
+
+INSERT INTO hospital_running_time_info VALUES (101,'13:30','18:00',2);
+
+INSERT INTO hospital_running_time_info VALUES (101,'9:00','12:00',3);
+
+INSERT INTO hospital_running_time_info VALUES (101,'13:30','18:00',3);
+
+INSERT INTO hospital_running_time_info VALUES (101,'9:00','12:00',4);
+
+INSERT INTO hospital_running_time_info VALUES (101,'13:30','18:00',4);
+
+INSERT INTO hospital_running_time_info VALUES (101,'9:00','12:30',5);
+
+INSERT INTO hospital_running_time_info VALUES (101,NULL,NULL,6);
+
+※NULLの場合、休診になる
+
+INSERT INTO hospital_info VALUES (101,'すやま歯科医院','〒852-8135 長崎県長崎市千歳町11スプリーム千歳町1F','095-843-7234',NULL,'https://suyamashika.com/','土午後・日・祝','30M');
+
+
+INSERT INTO hospital_reserved_info VALUES (1,1,101,'2023-10-27','13:30',false);
+
+INSERT INTO hospital_reserved_info VALUES (2,1,101,'2023-10-25','11:30',false);
+
+INSERT INTO hospital_reserved_info VALUES (3,1,101,'2023-11-24','11:30',false);
+
+
+
+INSERT INTO registrants_info VALUES (1,100,'岩永拓也','1998-09-01','男','この辺のあの辺2-9-0',NULL);
+
+INSERT INTO visiting_hospital_info VALUES (100,101,true);
+
+
+プライマリーキーは1つにつき1行を特定するもの
+
+
+テーブル結合
+必要になるデータ
+
+メイン画面の情報
+SELECT T1.user_name,T1.user_img,T3.ticket_id,T3.reserved_date,T1.user_id ,T3.reserved_time,T4.hospital_name FROM registrants_info as T1 INNER JOIN visiting_hospital_info as T2 ON T2.hospital_list_id=T1.hospital_list_id INNER JOIN hospital_reserved_info as T3 ON T3.user_id=T1.user_id INNER JOIN hospital_info as T4 ON T4.hospital_id=T2.hospital_id AND T4.hospital_id=T3.hospital_id where T3.reserved_date=(SELECT MIN(T22.reserved_date) FROM hospital_reserved_info as T22) AND T3.reserved_check=false;
+
+予約画面の情報
+SELECT T3.reserved_date,T3.reserved_time,T4.hospital_name FROM hospital_reserved_info as T3 INNER JOIN hospital_info as T4 ON T3.hospital_id=T4.hospital_id where T3.user_id=***
