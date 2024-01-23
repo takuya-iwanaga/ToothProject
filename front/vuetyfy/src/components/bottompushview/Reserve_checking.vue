@@ -43,7 +43,7 @@
         </router-link>
 
         <router-link to="Reserve">
-        <v-btn color="blue" @click="fastapi_reserved_add('http://127.0.0.1:4050/reserved_data/add/')">
+        <v-btn color="blue" @click="fastapi_reserved_adding('http://127.0.0.1:4050/reserved_data/inserting_day/')">
             予約を確定する
         </v-btn>
         </router-link>       
@@ -52,9 +52,7 @@
 </v-container>
 </template>
 <script setup>
-import Header from '../Header.vue';
-
-    import{onMounted} from 'vue'
+    import Header from '../Header.vue';
     import axios from 'axios'
     import {store}from '../../store/index.js'
 
@@ -76,19 +74,14 @@ import Header from '../Header.vue';
     var today=today_year+"年"+today_month+"月"+today_day+"日 "+week[today_week]+"曜日"
 
     //入力した予約日時の内容をデータベースに追加する
-    function fastapi_reserved_add(url){
-        onMounted(()=>{
-            axios
-            .post(url,{reserved_adding_date:store.state.reserving_check_date_info,reserved_adding_time:store.state.reserving_check_time_info})
+    function fastapi_reserved_adding(url){
+        let params =
+        {'day':store.state.reserving_check_date_info,
+        'time':store.state.reserving_check_time_info}
+            axios.post(url,params)
 
             .then((response) => {alert(response+'予約を受け付けました！！')})
 
-            .catch((error) => console.log(error))
-        
-        })
-
+            .catch((error) => console.log(error.response.data))   
     }
-
-
-
 </script>

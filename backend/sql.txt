@@ -74,7 +74,7 @@ INSERT INTO visiting_hospital_info VALUES (100,101,true);
 必要になるデータ
 
 メイン画面の情報
-SELECT T1.user_name,T1.user_img,T3.ticket_id,T3.reserved_date,T1.user_id ,T3.reserved_time,T4.hospital_name FROM registrants_info as T1 INNER JOIN visiting_hospital_info as T2 ON T2.hospital_list_id=T1.hospital_list_id INNER JOIN hospital_reserved_info as T3 ON T3.user_id=T1.user_id INNER JOIN hospital_info as T4 ON T4.hospital_id=T2.hospital_id AND T4.hospital_id=T3.hospital_id where T3.reserved_date=(SELECT MIN(T22.reserved_date) FROM hospital_reserved_info as T22) AND T3.reserved_check=false;
+SELECT T1.user_name,T1.user_img,T3.ticket_id,T3.reserved_date,T1.user_id ,T3.reserved_time,T4.hospital_name FROM registrants_info as T1 INNER JOIN visiting_hospital_info as T2 ON T2.hospital_list_id=T1.hospital_list_id INNER JOIN hospital_reserved_info as T3 ON T3.user_id=T1.user_id INNER JOIN hospital_info as T4 ON T4.hospital_id=T2.hospital_id AND T4.hospital_id=T3.hospital_id where T3.reserved_date=(SELECT MIN(reserved_date) FROM hospital_reserved_info where reserved_check=false) AND T3.reserved_check=false;
 
 予約画面の情報
 SELECT T3.reserved_date,T3.reserved_time,T4.hospital_name FROM hospital_reserved_info as T3 INNER JOIN hospital_info as T4 ON T3.hospital_id=T4.hospital_id where T3.user_id=***

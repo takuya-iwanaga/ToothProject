@@ -8,12 +8,15 @@
     <Bottomselect/>
     </v-main>
     
-  </v-app>
+</v-app>
 </template>    
   
 <script setup>
-import Sample from "@/components/Sample.vue";
+import Sample from "@/components/sample.vue";
 import Account from "@/components/Account.vue";
 import Bottomselect from "./Bottomselect.vue";
+
+
+
 
 </script>

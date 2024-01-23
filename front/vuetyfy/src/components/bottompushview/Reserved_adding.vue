@@ -138,7 +138,6 @@
     const day_number_list={'月曜日':0,'火曜日':1,'水曜日':2,'木曜日':3,'金曜日':4,'土曜日':5,'日曜日':6}
     //曜日に合わせた予約可能な時間帯を表示
     function reserving_time_list_making(reserve_day){
-        console.log(reserve_day)
         if(reserve_day.value!==''){
             //予約可能な時間の配列を作成する
             const reserve_possible_time_list=[]
